@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "English Piece Collector",
+  "version": "1.0",
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": ["activeTab"],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ],
+  "commands": { 
+    "save-piece-command": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+S",
+        "mac": "Command+Shift+S"
+      },
+      "description": "select language pieces"
+    }
+  }
+}
