@@ -1,0 +1,440 @@
+/* ===== Global reset & base ===== */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --bg-body: #faf9f6;
+    --bg-card: #ffffff;
+    --text-primary: #1a1a1a;
+    --text-secondary: #444444;
+    --text-muted: #777777;
+    --border-light: #e8e6e1;
+    --accent: #2b6c94;
+    --accent-hover: #1f5272;
+    --font-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --font-mono: "SF Mono", "Cascadia Code", "Consolas", monospace;
+    --radius: 8px;
+    --max-width: 820px;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--font-base);
+    background-color: var(--bg-body);
+    color: var(--text-primary);
+    line-height: 1.8;
+    padding: 2rem 1.5rem;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ===== Container ===== */
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+/* ===== Header ===== */
+header {
+    margin-bottom: 2.5rem;
+    border-bottom: 1px solid var(--border-light);
+    padding-bottom: 1.25rem;
+}
+
+header h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+    line-height: 1.2;
+}
+
+header .subtitle {
+    font-size: 1rem;
+    color: var(--text-muted);
+    margin-top: 0.1rem;
+    letter-spacing: 0.01em;
+}
+
+/* ===== Controls ===== */
+.controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1rem 1.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.control-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    flex: 1 1 220px;
+}
+
+.control-group label {
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--text-muted);
+}
+
+#date-picker {
+    padding: 0.6rem 0.8rem;
+    font-size: 0.95rem;
+    font-family: var(--font-base);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius);
+    background: #ffffff;
+    color: var(--text-primary);
+    width: 60%;
+    transition: border-color 0.15s ease;
+}
+
+#date-picker:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
+/* ===== Buttons ===== */
+.button-8,
+.primary-btn {
+    background-color: #e1ecf4;
+    border-radius: 3px;
+    border: 1px solid #7aa7c7;
+    box-shadow: rgba(255, 255, 255, 0.7) 0 1px 0 0 inset;
+    box-sizing: border-box;
+    color: #39739d;
+    cursor: pointer;
+    display: inline-block;
+    font-family: -apple-system, system-ui, "Segoe UI", "Liberation Sans", sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.15385;
+    margin: 0;
+    outline: none;
+    padding: 8px 0.8em;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: baseline;
+    white-space: nowrap;
+    height: fit-content;
+    align-self: flex-end;
+    transition: background-color 0.15s ease, color 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.button-8:hover,
+.button-8:focus,
+.primary-btn:hover,
+.primary-btn:focus {
+    background-color: #b3d3ea;
+    color: #2c5777;
+}
+
+.button-8:focus,
+.primary-btn:focus {
+    box-shadow: 0 0 0 4px rgba(0, 149, 255, 0.15);
+}
+
+.button-8:active,
+.primary-btn:active {
+    background-color: #a0c7e4;
+    box-shadow: none;
+    color: #2c5777;
+}
+
+/* ===== Piece list ===== */
+.pieces-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* ===== Empty state ===== */
+.empty-state {
+    text-align: center;
+    color: var(--text-muted);
+    padding: 3rem 1rem;
+    font-size: 1rem;
+    background: var(--bg-card);
+    border-radius: var(--radius);
+    border: 1px solid var(--border-light);
+}
+
+/* ===== Single piece card ===== */
+.piece-item {
+    background: var(--bg-card);
+    border-radius: var(--radius);
+    padding: 1.5rem 1.75rem;
+    border: 1px solid var(--border-light);
+    transition: border-color 0.15s ease;
+}
+
+.piece-item:hover {
+    border-color: #cccbc4;
+}
+
+/* ===== Front: context ===== */
+.front-section {
+    margin-bottom: 1rem;
+}
+
+.context-text {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+}
+
+.context-text b {
+    color: var(--text-primary);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: var(--accent);
+    text-decoration-thickness: 2px;
+}
+
+/* ===== Back: note editor ===== */
+.back-section {
+    border-top: 1px solid var(--border-light);
+    padding-top: 1rem;
+}
+
+.markdown-editor {
+    width: 100%;
+    min-height: 70px;
+    padding: 0.7rem 0.9rem;
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius);
+    background: #fcfcfa;
+    color: var(--text-primary);
+    resize: vertical;
+    transition: border-color 0.15s ease;
+}
+
+.markdown-editor:focus {
+    outline: none;
+    border-color: var(--accent);
+    background: #ffffff;
+}
+
+.markdown-editor::placeholder {
+    color: var(--text-muted);
+}
+
+/* ===== Piece footer ===== */
+.piece-footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 0.75rem;
+}
+
+.source-link {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.source-link:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+}
+
+.delete-btn {
+    padding: 0.25rem 0.9rem;
+    font-size: 0.8rem;
+    font-family: var(--font-base);
+    background: transparent;
+    color: var(--text-muted);
+    border: 1px solid var(--border-light);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.delete-btn:hover {
+    color: #b34a4a;
+    border-color: #b34a4a;
+    background: #fdf6f6;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 600px) {
+    body {
+        padding: 1.25rem 1rem;
+    }
+
+    header h1 {
+        font-size: 1.6rem;
+    }
+
+    .controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .button-8,
+    .primary-btn {
+        align-self: stretch;
+        text-align: center;
+    }
+
+    .piece-item {
+        padding: 1.25rem;
+    }
+
+    .context-text {
+        font-size: 0.95rem;
+    }
+}
+
+/* ------ Custom flatpickr styles ------ */
+
+/* ===== Flatpickr custom styles (minimal, round selection) ===== */
+
+.flatpickr-calendar {
+  background: #ffffff;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.06), 0 1px 3px rgba(0,0,0,0.04);
+  font-family: var(--font-base);
+  border: 1px solid var(--border-light);
+}
+
+.flatpickr-months .flatpickr-month {
+  color: var(--text-primary);
+  fill: var(--text-primary);
+}
+
+.flatpickr-current-month {
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.flatpickr-current-month .numInputWrapper span.arrowUp:after {
+  border-bottom-color: var(--text-muted);
+}
+.flatpickr-current-month .numInputWrapper span.arrowDown:after {
+  border-top-color: var(--text-muted);
+}
+
+.flatpickr-months .flatpickr-prev-month,
+.flatpickr-months .flatpickr-next-month {
+  color: var(--text-muted);
+  fill: var(--text-muted);
+}
+.flatpickr-months .flatpickr-prev-month:hover,
+.flatpickr-months .flatpickr-next-month:hover {
+  color: var(--accent);
+  fill: var(--accent);
+}
+
+span.flatpickr-weekday {
+  color: var(--text-muted);
+  font-weight: 500;
+  font-size: 0.8rem;
+}
+
+.flatpickr-day {
+  color: var(--text-primary);
+  border-radius: 50% !important;  /* All days are round */
+  height: 39px;
+  line-height: 39px;
+  margin: 0;
+  max-width: 39px;
+  flex-basis: 14.2857143%;
+}
+
+.flatpickr-day:hover {
+  background: #f0eeeb;
+  border-color: transparent;
+}
+
+.flatpickr-day.today {
+  border-color: var(--border-light);
+  font-weight: 600;
+}
+.flatpickr-day.today:hover {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+
+/* Days in range (non-start/end) keep round shape with lighter background */
+.flatpickr-day.inRange {
+  background: #e9edf2;
+  border-color: transparent;
+  border-radius: 50% !important;
+  box-shadow: none;
+}
+
+/* Start and end: fully round, using accent color */
+.flatpickr-day.selected,
+.flatpickr-day.startRange,
+.flatpickr-day.endRange,
+.flatpickr-day.selected.inRange,
+.flatpickr-day.startRange.inRange,
+.flatpickr-day.endRange.inRange {
+  background: var(--accent) !important;
+  color: #fff !important;
+  border-color: var(--accent) !important;
+  border-radius: 50% !important;  /* Force round */
+  box-shadow: none !important;
+}
+
+/* Cancel half-circle effects */
+.flatpickr-day.selected.startRange,
+.flatpickr-day.startRange.startRange,
+.flatpickr-day.endRange.startRange {
+  border-radius: 50% !important;
+}
+.flatpickr-day.selected.endRange,
+.flatpickr-day.startRange.endRange,
+.flatpickr-day.endRange.endRange {
+  border-radius: 50% !important;
+}
+
+/* Remove special shadow when start + end range */
+.flatpickr-day.selected.startRange + .endRange:not(:nth-child(7n+1)),
+.flatpickr-day.startRange.startRange + .endRange:not(:nth-child(7n+1)),
+.flatpickr-day.endRange.startRange + .endRange:not(:nth-child(7n+1)) {
+  box-shadow: none !important;
+}
+
+/* Disabled date styles */
+.flatpickr-day.flatpickr-disabled,
+.flatpickr-day.flatpickr-disabled:hover,
+.flatpickr-day.prevMonthDay,
+.flatpickr-day.nextMonthDay {
+  color: #ccc;
+  background: transparent;
+  border-color: transparent;
+}
+
+/* Year/month input field */
+.numInputWrapper:hover {
+  background: transparent;
+}
+.numInputWrapper span {
+  border-color: var(--border-light);
+}
