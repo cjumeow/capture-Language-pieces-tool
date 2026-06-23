@@ -22,3 +22,15 @@ export function setDateRange(range) {
   state.setDateRange(range);
 }
 
+export async function toggleStatus(id) {
+  const piece = state.allPieces.find(p => p.id === id);
+  if (!piece) return;
+
+  const newStatus = piece.status === 'done' ? 'undone' : 'done';
+  await updateStatusInStorage(id, newStatus);
+  // ｕpdate the state in memory
+  const updatedPieces = state.allPieces.map(p =>
+    p.id === id ? { ...p, status: newStatus } : p
+  );
+  state.setPieces(updatedPieces, true); // true to avoid notifying subscribers again
+}
