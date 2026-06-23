@@ -17,7 +17,7 @@ async function handleCapture() {
 
   const markdownContext = contextSentence.replace(
     selectedText,
-    `**${selectedText}**`,
+    `${selectedText}`,
   );
 
   const newPiece = {
@@ -26,7 +26,7 @@ async function handleCapture() {
     context: markdownContext,
     source_url: window.location.href,
     timestamp: new Date().toISOString(),
-    status: "active",
+    status: "undone",
   };
 
   try {
