@@ -1,11 +1,18 @@
 import { state } from './states.js';
-import { getPieces, updateNoteInStorage, deletePieceFromStorage } from './storage.js';
+import { getPieces, updateNoteInStorage, deletePieceFromStorage, updateStatusInStorage, savePieces } from './storage.js';
 
 export async function loadInitialData() {
   const pieces = await getPieces();
-  state.setPieces(pieces);
+  
+  const cleanedPieces = pieces.map(p => ({
+    ...p,
+    context: p.context || p.original_piece || "", 
+    status: p.status || "undone",
+    user_note: p.user_note || "", 
+  }));
+  
+  state.setPieces(cleanedPieces);
 }
-
 export async function deletePiece(id) {
   if (confirm("Are you sure you want to delete this piece?")) {
     const updated = await deletePieceFromStorage(id);
