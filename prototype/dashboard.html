@@ -1,40 +1,46 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>English Pieces</title>
-    <!-- Flatpickr core styles and dark theme -->
     <link rel="stylesheet" href="flatpickr/flatpickr.css" />
-    <!-- <link rel="stylesheet" href="flatpickr/dark.css" /> -->
-    <!-- Main stylesheet -->
     <link rel="stylesheet" href="style.css" />
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <!-- Header -->
-        <header>
-            <h1>English Pieces</h1>
-            <p class="subtitle">Collect · Review · Remember</p>
-        </header>
+      <header>
+        <h1>English Pieces</h1>
+        <p class="subtitle">Collect · Review · Remember</p>
+      </header>
 
-        <!-- Controls -->
-        <div class="controls">
-            <div class="control-group">
-                <label for="date-picker">Date range</label>
-                <input type="text" id="date-picker" placeholder="Select dates..." />
-            </div>
-            <button id="export-anki-btn" class="button-8" role="button">Export to Anki</button>
+      <div class="controls">
+        <div class="control-group control-group--date">
+          <label for="date-picker">Date range</label>
+          <input type="text" id="date-picker" placeholder="Select dates..." />
+        </div>
+        <div class="control-group control-group--status">
+          <label for="status-filter">Status</label>
+         <select id="status-filter">
+            <option value="all">All</option>
+            <option value="undone">unfinished</option>
+            <option value="done">finished</option>
+        </select>
         </div>
 
-        <!-- Piece list -->
-        <main id="pieces-list" class="pieces-list">
-            <div class="empty-state">Select a date range to review your pieces.</div>
-        </main>
+        <button id="export-anki-btn" class="button-8" role="button">
+          Export to Anki
+        </button>
+      </div>
+
+      <main id="pieces-list" class="pieces-list">
+        <div class="empty-state">
+          Select a date range to review your pieces.
+        </div>
+      </main>
     </div>
 
-    <!-- Third-party libraries and app logic -->
-    <script src="flatpickr/flatpickr.min.js"></script>
+    <script src="flatpickr/flatpickr.js"></script>
     <script type="module" src="src/main.js"></script>
-</body>
+  </body>
 </html>
