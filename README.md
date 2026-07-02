@@ -24,7 +24,7 @@
 1. Clone this repository:
    ```bash
    git clone https://github.com/yourusername/english-pieces-collector.git
-2. Go to [chrome://extensions/](chrome://extensions/)
+2. Go to `chrome://extensions/`
 3. Open `Developer mode` and Click `Load unpacked`
 4. Select the whole folder to import.
 
