@@ -35,3 +35,7 @@
 3. **Refine**: Add notes, mark cards as "Done" when you've mastered them.
 4. **Export**: Click **"Export to Anki"** to download a CSV file of your "Done" cards.
 5. **Import**: In Anki, go to *File → Import* and select the CSV file.
+
+# 🗺️ Roadmap
+1. Markdown editor
+2. Use AI to help capture context
