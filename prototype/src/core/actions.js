@@ -29,6 +29,10 @@ export function setDateRange(range) {
   state.setDateRange(range);
 }
 
+export function setStatusFilter(filter) {
+  state.setStatusFilter(filter);
+}
+
 export async function toggleStatus(id) {
   const piece = state.allPieces.find(p => p.id === id);
   if (!piece) return;
@@ -39,5 +43,5 @@ export async function toggleStatus(id) {
   const updatedPieces = state.allPieces.map(p =>
     p.id === id ? { ...p, status: newStatus } : p
   );
-  state.setPieces(updatedPieces, true); // true to avoid notifying subscribers again
+  state.setPieces(updatedPieces, false); // true to avoid notifying subscribers again
 }

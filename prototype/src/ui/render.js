@@ -9,22 +9,44 @@ export function renderView() {
 
   let filtered = filterByDate(state.allPieces, state.selectedDateRange);
 
+  if (state.statusFilter !== "all") {
+    filtered = filtered.filter((p) => p.status === state.statusFilter);
+  }
+
   if (filtered.length === 0) {
     container.innerHTML =
       '<div class="empty-state">No pieces collected in this range.</div>';
+    updateExportButton(state.allPieces, state.selectedDateRange);
     return;
   }
 
   filtered.sort((a, b) => b.id - a.id);
   renderPieceList(filtered, container);
+  updateExportButton(state.allPieces, state.selectedDateRange);
 }
+
+function updateExportButton(allPieces, dateRange) {
+  const exportBtn = document.getElementById('export-anki-btn');
+  if (!exportBtn) return;
+
+  const dateFiltered = filterByDate(allPieces, dateRange);
+  const exportable = dateFiltered.filter(p => p.status === 'done');
+  const count = exportable.length;
+
+  if (count === 0) {
+    exportBtn.textContent = 'Export to Anki (0)';
+  } else {
+    exportBtn.textContent = `Export to Anki (${count})`;
+  }
+}
+
 
 function renderPieceList(pieces, container) {
   pieces.forEach((piece) => {
     const pieceEl = document.createElement("div");
     pieceEl.className = "piece-item";
 
-    const safeContext = piece.context || piece.original_piece || ""; 
+    const safeContext = piece.context || piece.original_piece || "";
     const boldContext = safeContext.replace(
       new RegExp(`(${escapeRegExp(piece.original_piece)})`, "gi"),
       "<b>$&</b>",
