@@ -6,7 +6,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 
-## ✨ Features
+## Features
 - **One‑click capture** — select any text, press `Ctrl+Shift+S`, and it's saved with its surrounding context.
 - **Smart context extraction** — automatically grabs the full sentence containing your selected text.
 - **Dashboard** — review all your collected pieces, filter by date or status (Done / Undone).
@@ -18,7 +18,7 @@
 
 
 
-## 🔧 Installation (Still not published)
+## Installation (Still not published)
 
 ### Manual installation (for development)
 1. Clone this repository:
@@ -28,7 +28,7 @@
 3. Open `Developer mode` and Click `Load unpacked`
 4. Select the whole folder to import.
 
-## 🎯 How to use
+## How to use
 
 1. **Collect**: On any webpage, select a word or phrase and press `Ctrl+Shift+S` (Mac: `Cmd+Shift+S`).
 2. **Review**: Click the extension icon or open `dashboard.html` to see all your collected pieces.
@@ -36,6 +36,6 @@
 4. **Export**: Click **"Export to Anki"** to download a CSV file of your "Done" cards.
 5. **Import**: In Anki, go to *File → Import* and select the CSV file.
 
-## 🗺️ Roadmap
+## Roadmap
 1. Markdown editor
 2. Use AI to help capture context
