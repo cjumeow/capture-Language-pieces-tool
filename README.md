@@ -14,7 +14,12 @@
 - Review: Users open their own workspace, storing all the pieces they collected, and they start to review them, and take note through looking up dictionaries.
 - Memorize: (It's not the major goal of what I imagine) Cards can be exported as Anki or any flashcard apps that have had comprehensive memorize system.
 
---- 
+## Quick Demo
+
+https://github.com/user-attachments/assets/bccded1e-2a75-432f-b6c1-7a4bc0ccec43
+
+
+
 ## Roadmap
 - I do think user don't have to take note by themselves. Instead, AI will strongly help them to note anything they want. For example, AI can give users example sentences of a piece based on their language level.
 - Get surrounding context using AI in any mediums (especially can work on youtube).
