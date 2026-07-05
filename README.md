@@ -18,6 +18,21 @@
 
 https://github.com/user-attachments/assets/bccded1e-2a75-432f-b6c1-7a4bc0ccec43
 
+## Getting Started (Developer Mode)
+
+1. Clone or download this repository to your local machine.
+2. Open Chrome and go to `chrome://extensions/`.
+3. Toggle on **"Developer mode"** in the top-right corner.
+4. Click **"Load unpacked"** and select the project root folder (containing `manifest.json`).
+
+---
+
+### 🛠️ Customization & Troubleshooting
+
+* **Language Segmentation (Non-English Support):**  
+  This MVP is currently for English sentence splitting (`en`, `granularity: "sentence"`). If you want to support word-splitting or other languages (like Chinese or Japanese), you can modify the text segmentation logic in `getContext.js` by customizing [MDN's Intl.Segmenter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Segmenter).
+* **Troubleshoot:** If the extension doesn't respond right after installation, please refresh your open browser tabs.
+
 
 
 ## Roadmap
