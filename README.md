@@ -1,41 +1,21 @@
-# English Pieces Collector
+# A MVP of language (now only for English) pieces collector
 
 > A browser extension for language learners — collect English expressions as you read, review them later, and export to Anki.
 
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+## Core Idea (I think there is no tool has done this)
+- This tool is not for pure language learning. Instead, I only want it to focus on two goals:
+  1. User can EASILY capture any language pieces without being interrupted.
+  2. Build the best system to get the surrounding context of pieces using AI and AI note-taking experience.
 
+## Stages
+- Collect: User capture one piece from anywhere by pressing a shortcut (`ctrl`+`shift`+`s`) to store the piece you want to grasp and its surrouding context.
+- Review: Users open their own workspace, storing all the pieces they collected, and they start to review them, and take note through looking up dictionaries.
+- Memorize: (It's not the major goal of what I imagine) Cards can be exported as Anki or any flashcard apps that have had comprehensive memorize system.
 
-## Features
-- **One‑click capture** — select any text, press `Ctrl+Shift+S`, and it's saved with its surrounding context.
-- **Smart context extraction** — automatically grabs the full sentence containing your selected text.
-- **Dashboard** — review all your collected pieces, filter by date or status (Done / Undone).
-- **Add notes** — add your own notes, definitions, or example sentences to each piece.
-- **Anki export** — export only the cards you've marked as "Done" as a CSV file, ready to import into Anki.
-- **Lightweight & private** — all data stays in your local `chrome.storage`; no cloud upload.
-
-
-
-
-
-## Installation (Still not published)
-
-### Manual installation (for development)
-1. Clone this repository:
-   ```bash
-   git clone https://github.com/yourusername/english-pieces-collector.git
-2. Go to `chrome://extensions/`
-3. Open `Developer mode` and Click `Load unpacked`
-4. Select the whole folder to import.
-
-## How to use
-
-1. **Collect**: On any webpage, select a word or phrase and press `Ctrl+Shift+S` (Mac: `Cmd+Shift+S`).
-2. **Review**: Click the extension icon or open `dashboard.html` to see all your collected pieces.
-3. **Refine**: Add notes, mark cards as "Done" when you've mastered them.
-4. **Export**: Click **"Export to Anki"** to download a CSV file of your "Done" cards.
-5. **Import**: In Anki, go to *File → Import* and select the CSV file.
-
+--- 
 ## Roadmap
-1. Markdown editor
-2. Use AI to help capture context
+- I do think user don't have to take note by themselves. Instead, AI will strongly help them to note anything they want. For example, AI can give users example sentences of a piece based on their language level.
+- Get surrounding context using AI in any mediums (especially can work on youtube).
+
